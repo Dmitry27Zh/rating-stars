@@ -30,14 +30,15 @@
   }
 }
 
-.rating__bar--active .rating__control:checked ~ .rating__star,
-.rating__bar--active .rating__control:focus ~ .rating__star,
+.rating__bar:not(.rating__bar--hover) .rating__control:checked ~ .rating__star,
+.rating__bar:not(.rating__bar--hover) .rating__control:focus ~ .rating__star,
 .rating__star:hover ~ .rating__star {
   color: rgb(202, 176, 110);
 }
 
-.rating__bar--active .rating__control:checked + .rating__star,
-.rating__bar:not(.rating__bar--hover) .rating__control:focus + .rating__star {
+.rating__bar:not(.rating__bar--hover) .rating__control:checked + .rating__star,
+.rating__bar:not(.rating__bar--hover) .rating__control:focus + .rating__star,
+.rating__star:hover + .rating__star {
   color: goldenrod;
 }
 
