@@ -1,20 +1,16 @@
 .rating {
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 40%;
-          flex: 0 0 40%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .rating__bar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-right: 15px;
   color: #cab06e;
 }
 
@@ -24,6 +20,12 @@
 
 .rating__star {
   position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   font-size: 58px;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
@@ -31,6 +33,12 @@
 
 .rating__star:not(:last-child) {
   margin-right: 10px;
+}
+
+@media (max-width: 639px) {
+  .rating__star {
+    font-size: 40px;
+  }
 }
 
 .rating__bar--active .rating__control:checked ~ .rating__star,
