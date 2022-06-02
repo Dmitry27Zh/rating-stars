@@ -1,24 +1,16 @@
 const elements = document.querySelectorAll('.rating__bar')
 
 const init = (bar) => {
-  const stars = bar.querySelectorAll('.rating__star')
+  if (bar.querySelector('.rating__control:checked')) {
+    bar.classList.add('is-filled')
+    return
+  }
 
   const ratingBarChangeHandler = () => {
-    bar.classList.add('rating__bar--active')
-    bar.removeEventListener('change', ratingBarChangeHandler)
+    bar.classList.add('is-filled')
   }
 
-  bar.addEventListener('change', ratingBarChangeHandler)
-
-  for (let star of stars) {
-    star.addEventListener('mouseenter', () => {
-      bar.classList.add('rating__bar--hover')
-    })
-
-    star.addEventListener('mouseleave', () => {
-      bar.classList.remove('rating__bar--hover');
-    })
-  }
+  bar.addEventListener('change', ratingBarChangeHandler, { once: true })
 }
 
 export const initRatings = () => elements.forEach(init)

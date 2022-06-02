@@ -4,11 +4,22 @@
 }
 
 .rating__bar {
+  position: relative;
   display: flex;
   color: rgb(202, 176, 110);
 
-  &--active,
-  &--hover {
+  &:hover,
+  &.is-filled {
+    color: goldenrod;
+  }
+
+  &:not(:hover) .rating__control:checked ~ .rating__star,
+  &:not(:hover) .rating__control:focus ~ .rating__star {
+    color: rgb(202, 176, 110);
+  }
+
+  &:not(:hover) .rating__control:checked + .rating__star,
+  &:not(:hover) .rating__control:focus + .rating__star {
     color: goldenrod;
   }
 }
@@ -17,29 +28,29 @@
   position: relative;
   display: inline-flex;
   align-items: center;
+  padding: 5px;
   font-size: 58px;
+  line-height: 1;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 
-  &:not(:last-child) {
-    margin-right: 10px;
+  *:not(.rating__control) {
+    pointer-events: none;
+  }
+
+  &:hover {
+    ~ .rating__star {
+      color: rgb(202, 176, 110);
+    }
+
+    + .rating__star {
+      color: goldenrod;
+    }
   }
 
   @media (max-width: 639px) {
     font-size: 40px;
   }
-}
-
-.rating__bar:not(.rating__bar--hover) .rating__control:checked ~ .rating__star,
-.rating__bar:not(.rating__bar--hover) .rating__control:focus ~ .rating__star,
-.rating__star:hover ~ .rating__star {
-  color: rgb(202, 176, 110);
-}
-
-.rating__bar:not(.rating__bar--hover) .rating__control:checked + .rating__star,
-.rating__bar:not(.rating__bar--hover) .rating__control:focus + .rating__star,
-.rating__star:hover + .rating__star {
-  color: goldenrod;
 }
 
 .rating__amount {

@@ -66,13 +66,24 @@ h1 {
 }
 
 .rating__bar {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   color: #cab06e;
 }
 
-.rating__bar--active, .rating__bar--hover {
+.rating__bar:hover, .rating__bar.is-filled {
+  color: goldenrod;
+}
+
+.rating__bar:not(:hover) .rating__control:checked ~ .rating__star,
+.rating__bar:not(:hover) .rating__control:focus ~ .rating__star {
+  color: #cab06e;
+}
+
+.rating__bar:not(:hover) .rating__control:checked + .rating__star,
+.rating__bar:not(:hover) .rating__control:focus + .rating__star {
   color: goldenrod;
 }
 
@@ -84,31 +95,29 @@ h1 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 5px;
   font-size: 58px;
+  line-height: 1;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
 
-.rating__star:not(:last-child) {
-  margin-right: 10px;
+.rating__star *:not(.rating__control) {
+  pointer-events: none;
+}
+
+.rating__star:hover ~ .rating__star {
+  color: #cab06e;
+}
+
+.rating__star:hover + .rating__star {
+  color: goldenrod;
 }
 
 @media (max-width: 639px) {
   .rating__star {
     font-size: 40px;
   }
-}
-
-.rating__bar:not(.rating__bar--hover) .rating__control:checked ~ .rating__star,
-.rating__bar:not(.rating__bar--hover) .rating__control:focus ~ .rating__star,
-.rating__star:hover ~ .rating__star {
-  color: #cab06e;
-}
-
-.rating__bar:not(.rating__bar--hover) .rating__control:checked + .rating__star,
-.rating__bar:not(.rating__bar--hover) .rating__control:focus + .rating__star,
-.rating__star:hover + .rating__star {
-  color: goldenrod;
 }
 
 .rating__amount {
