@@ -13,14 +13,16 @@
     color: goldenrod;
   }
 
-  &:not(:hover) .rating__control:checked ~ .rating__star,
-  &:not(:hover) .rating__control:focus ~ .rating__star {
-    color: rgb(202, 176, 110);
-  }
+  &.is-filled {
+    &:not(:hover) .rating__control:checked ~ .rating__star,
+    &:not(:hover) .rating__control:focus ~ .rating__star {
+      color: rgb(202, 176, 110);
+    }
 
-  &:not(:hover) .rating__control:checked + .rating__star,
-  &:not(:hover) .rating__control:focus + .rating__star {
-    color: goldenrod;
+    &:not(:hover) .rating__control:checked + .rating__star,
+    &:not(:hover) .rating__control:focus + .rating__star {
+      color: goldenrod;
+    }
   }
 }
 

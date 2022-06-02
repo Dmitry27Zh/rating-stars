@@ -1,3 +1,3 @@
 import { initRatings } from "./modules/rating.js";
 
-initRatings()
+setTimeout(initRatings, 5000)

@@ -77,13 +77,13 @@ h1 {
   color: goldenrod;
 }
 
-.rating__bar:not(:hover) .rating__control:checked ~ .rating__star,
-.rating__bar:not(:hover) .rating__control:focus ~ .rating__star {
+.rating__bar.is-filled:not(:hover) .rating__control:checked ~ .rating__star,
+.rating__bar.is-filled:not(:hover) .rating__control:focus ~ .rating__star {
   color: #cab06e;
 }
 
-.rating__bar:not(:hover) .rating__control:checked + .rating__star,
-.rating__bar:not(:hover) .rating__control:focus + .rating__star {
+.rating__bar.is-filled:not(:hover) .rating__control:checked + .rating__star,
+.rating__bar.is-filled:not(:hover) .rating__control:focus + .rating__star {
   color: goldenrod;
 }
 
